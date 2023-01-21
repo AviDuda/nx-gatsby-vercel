@@ -12,7 +12,7 @@
       "options": {
         "cwd": "apps/first/",
         "commands": [
-          "find ../.. -name 'gatsby-*' -depth 1 -exec cp '{}' . \\;"
+          "find ../.. -name 'gatsby-*' -maxdepth 1 -exec cp '{}' . \\;"
         ]
       }
     },
