@@ -1,0 +1,8 @@
+{
+  "name": "@demo/second",
+  "description": "Second site",
+  "private": true,
+  "dependencies": {
+    "gatsby": "*"
+  }
+}

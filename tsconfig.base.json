@@ -1,0 +1,27 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["DOM", "ESNext"],
+    "jsx": "react",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "noEmit": true,
+    "declaration": false,
+    "importHelpers": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "rootDir": ".",
+    "baseUrl": ".",
+    "paths": {
+      "@demo/shared/*": ["libs/shared/src/*"]
+    }
+  },
+  "exclude": ["node_modules", "public", ".cache"]
+}

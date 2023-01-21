@@ -1,0 +1,31 @@
+// VS Code workspace settings
+//
+// Do not commit the `settings.json` file to the repository as it may include changes unwanted by other developers
+// plus it can include paths relevant for a single machine.
+// You can add useful workspace settings to file `settings.json.default` and commit it instead.
+{
+  // Exclude from search
+  "search.exclude": {
+    "**/node_modules": true,
+    // Gatsby cache
+    "**/.cache": true,
+    // Gatsby build
+    "**/public": true
+  },
+
+  // ESLint extension (dbaeumer.vscode-eslint)
+
+  "eslint.options": {
+    // Gatsby has pre-defined rules in one of the subdirectories in node_modules.
+    // Include them here so VS Code can find these rules.
+    // This rule path is also called in `lint` npm scripts via the `--rulesdir` parameter.
+    "rulePaths": ["node_modules/gatsby/dist/utils/eslint-rules"]
+  },
+
+  // Useful but optional settings
+
+  // Automatically format the code on save
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  }
+}

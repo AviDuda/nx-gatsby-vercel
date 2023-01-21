@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["DOM", "ESNext"],
+    "jsx": "react",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "noEmit": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "allowJs": true,
+    "resolveJsonModule": true,
+  },
+  "exclude": ["node_modules", "public", ".cache"],
+}

@@ -1,0 +1,45 @@
+{
+  "name": "first-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/first-e2e/src",
+  "projectType": "application",
+  "tags": [],
+  "implicitDependencies": ["first"],
+  "targets": {
+    "e2e": {
+      "executor": "@mands/nx-playwright:playwright-executor",
+      "options": {
+        "e2eFolder": "apps/first-e2e",
+        "packageRunner": "yarn"
+      },
+      "defaultConfiguration": "existing-server",
+      "configurations": {
+        "existing-server": {
+          "skipServe": true
+        },
+        "dev-remote": {
+          "devServerTarget": "first:serve:dev-remote"
+        },
+        "production-remote": {
+          "devServerTarget": "first:serve:production-remote"
+        }
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "tsc --noEmit -p apps/pro/tsconfig.e2e.json"
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/first-e2e/**/*.{js,ts}"],
+        "rulesdir": ["./node_modules/gatsby/dist/utils/eslint-rules"]
+      }
+    }
+  }
+}

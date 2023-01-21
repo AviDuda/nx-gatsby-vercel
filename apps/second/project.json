@@ -1,0 +1,136 @@
+{
+  "name": "second",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/second/src",
+  "projectType": "application",
+  "targets": {
+    "copy-data": {
+      "executor": "nx:run-commands",
+      "dependsOn": [
+        "clean-data"
+      ],
+      "options": {
+        "cwd": "apps/second/",
+        "commands": [
+          "find ../.. -name 'gatsby-*' -depth 1 -exec cp '{}' . \\;"
+        ]
+      }
+    },
+    "clean-data": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/second/",
+        "commands": [
+          "rm -f gatsby-*"
+        ]
+      }
+    },
+    "clean-gatsby": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/second/",
+        "command": "rm -rf .cache/ public/"
+      }
+    },
+    "dev": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["copy-data"],
+      "options": {
+        "cwd": "apps/second/"
+      },
+      "defaultConfiguration": "remote",
+      "configurations": {
+        "remote": {
+          "commands": [
+            "gatsby develop"
+          ]
+        },
+        "local": {
+          "commands": [
+            "gatsby develop"
+          ]
+        }
+      }
+    },
+    "build": {
+      "executor": "nx:run-commands",
+      "dependsOn": [
+        "copy-data"
+      ],
+      "options": {
+        "cwd": "apps/second/",
+        "outputPath": "apps/second/public"
+      },
+      "defaultConfiguration": "dev-remote",
+      "configurations": {
+        "dev-remote": {
+          "commands": [
+            "gatsby build"
+          ]
+        },
+        "dev-local": {
+          "commands": [
+            "gatsby build"
+          ]
+        },
+        "production-remote": {
+          "commands": [
+            "gatsby build"
+          ]
+        },
+        "production-local": {
+          "commands": [
+            "gatsby build"
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:file-server",
+      "defaultConfiguration": "dev-remote",
+      "options": {
+        "port": 8001
+      },
+      "configurations": {
+        "dev-remote": {
+          "buildTarget": "second:build:dev-remote"
+        },
+        "dev-local": {
+          "buildTarget": "second:build:dev-local"
+        },
+        "production-remote": {
+          "buildTarget": "second:build:production-remote"
+        },
+        "production-local": {
+          "buildTarget": "second:build:production-local"
+        }
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "tsc --noEmit -p apps/second/tsconfig.app.json",
+          "tsc --noEmit -p apps/second/tsconfig.spec.json"
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/second/**/*.{ts,tsx,js,jsx}"],
+        "rulesdir": ["./node_modules/gatsby/dist/utils/eslint-rules"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/second/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["scope:client"]
+}
