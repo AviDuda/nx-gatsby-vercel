@@ -53,3 +53,13 @@ This is a monorepo using [Nx](https://nx.dev/).
 
 Look in `apps/<app>/.env` and in `apps/<app-e2e>/.env` for the `PORT` environment variable. You can also override it in `apps/<app>/.local.env` (see [docs](https://nx.dev/recipes/environment-variables/define-environment-variables)).
 You will also need to change the `port` option for the `serve` target in `apps/<app>/project.json`.
+
+## Vercel deployment
+
+### Gatsby
+
+1. Add a new project on Vercel
+2. Override the Build Command: `nx run <app>:build:production-remote`
+3. Override the Output Directory: `apps/<app>/public`
+4. Deploy the project
+5. Go to Settings -> Git and set the Ignored Build Step to `npx nx-ignore <app>`
