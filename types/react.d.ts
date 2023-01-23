@@ -1,0 +1,24 @@
+/* eslint-disable @typescript-eslint/triple-slash-reference -- see https://github.com/styled-components/styled-components/issues/2528#issuecomment-489278611 */
+/// <reference path="../node_modules/@types/react/index.d.ts"/>
+
+import type { CSSProp } from "styled-components";
+
+declare module "react" {
+  interface Attributes {
+    // NOTE: unlike the plain javascript version, it is not possible to get access
+    // to the element's own attributes inside function interpolations.
+    // Only theme will be accessible, and only with the DefaultTheme due to the global
+    // nature of this declaration.
+    // If you are writing this inline you already have access to all the attributes anyway,
+    // no need for the extra indirection.
+    //
+    // Same as `import {} from "styled-components/cssprop"` but it actually works.
+
+    /**
+     * If present, this React element will be converted by
+     * `babel-plugin-styled-components` into a styled component
+     * with the given css as its styles.
+     */
+    css?: CSSProp;
+  }
+}
