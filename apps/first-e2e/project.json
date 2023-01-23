@@ -29,7 +29,7 @@
       "executor": "nx:run-commands",
       "options": {
         "commands": [
-          "tsc --noEmit -p apps/pro/tsconfig.e2e.json"
+          "tsc --noEmit -p apps/first-e2e/tsconfig.e2e.json"
         ]
       }
     },
