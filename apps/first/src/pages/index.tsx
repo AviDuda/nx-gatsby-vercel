@@ -7,7 +7,7 @@ const IndexPage = (_props: PageProps) => (
     <h2>Howdy!</h2>
     <p>App: {process.env.GATSBY_SUBDOMAIN}</p>
     <p>
-      <Link to="raccoons">Go see some raccoons</Link>
+      <Link to="raccoons">Go see some raccoons!!</Link>
     </p>
   </main>
 );
