@@ -1,8 +1,9 @@
 {
   "name": "@demo/second",
+  "version": "0.0.0",
   "description": "Second site",
   "private": true,
   "dependencies": {
-    "gatsby": "*"
+    "gatsby": "4.24.4"
   }
 }
