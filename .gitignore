@@ -68,3 +68,4 @@ pnpm-debug.log*
 # OS garbage
 .DS_Store
 Thumbs.db
+.vercel
